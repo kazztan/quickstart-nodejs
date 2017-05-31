@@ -33,6 +33,8 @@ jobs:
       # The next step is "test". It tests your NodeJS package
       # NPM reference document - https://docs.npmjs.com/cli/test
       - test: npm test
+      # kazuhtan edited
+      - kazuhtan_step: node index.js
   # We define another Job called "publish". In this stage of the pipeline, we intend
   # on publishing our package to the NPM Registry.
   publish:
@@ -47,7 +49,7 @@ jobs:
       - set_token: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN > /dev/null 2>&1
       # In "publish_npm", we perform the actual publishing
       # NPM reference document - https://docs.npmjs.com/cli/publish
-      - publish_npm: npm publish
+      # - publish_npm: npm publish
     # Allowed secrets block.
     # This list of secrets that are explicitly allowed to be exposed during the
     # "publish" Job.
